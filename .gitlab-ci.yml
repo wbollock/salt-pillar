@@ -12,6 +12,7 @@ test-job:
   script:
     - echo "Rendering pillar"
     - cd /srv/pillar
+    - git reset --hard
     - git pull
     - sudo salt '*' pillar.items
 
