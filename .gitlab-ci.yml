@@ -1,17 +1,20 @@
-build-job:
-  stage: build
-  script:
-    - echo "Hello, $GITLAB_USER_LOGIN!"
+# build-job:
+#   tags:
+#     - salt-master
+#   stage: build
+#   script:
+#     - echo "Hello, $GITLAB_USER_LOGIN!"
 
 test-job:
+  tags:
+    - salt-master
   stage: test
-  image: saltstack/salt
   script:
     - echo "Rendering pillar"
     - salt '*' pillar.items --local
 
-#deploy-prod:
-#  stage: deploy
-#  script:
-#    - echo "This job deploys something from the $CI_COMMIT_BRANCH branch."
-
+deploy-prod:
+  stage: deploy
+  script:
+    - cd /srv/pillar
+    - git pull
