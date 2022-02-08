@@ -13,7 +13,7 @@ test-job:
     - echo "Rendering pillar"
     - cd /srv/pillar
     - git pull
-    - salt '*' pillar.items
+    - sudo salt '*' pillar.items
 
 # deploy-prod:
 #   tags:
