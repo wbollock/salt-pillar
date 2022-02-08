@@ -8,7 +8,7 @@ test-job:
   image: saltstack/salt
   script:
     - echo "Rendering pillar"
-    - salt '*' pillar.items
+    - salt '*' pillar.items --local
 
 #deploy-prod:
 #  stage: deploy
