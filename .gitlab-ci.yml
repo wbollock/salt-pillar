@@ -11,10 +11,14 @@ test-job:
   stage: test
   script:
     - echo "Rendering pillar"
-    - salt '*' pillar.items --local
-
-deploy-prod:
-  stage: deploy
-  script:
     - cd /srv/pillar
     - git pull
+    - salt '*' pillar.items
+
+# deploy-prod:
+#   tags:
+#     - salt-master
+#   stage: deploy
+#   script:
+#     - cd /srv/pillar
+#     - git pull
