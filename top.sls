@@ -1,0 +1,6 @@
+#!jinja|yaml
+
+base:
+  '*':
+    - placeholder
+ 
